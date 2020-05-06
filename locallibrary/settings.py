@@ -21,7 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = '6-79160+hp-66(r&#*hyyho$8rk@-o1z#v@f*i+%8)bq!8cack'
-import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '6-79160+hp-66(r&#*hyyho$8rk@-o1z#v@f*i+%8)bq!8cack')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -151,3 +150,7 @@ DATABASES['default'].update(db_from_env)
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+import django_heroku
+# Activate Django-Heroku.
+django_heroku.settings(locals())
